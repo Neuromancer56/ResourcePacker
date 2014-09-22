@@ -1,11 +1,13 @@
+dofile(minetest.get_modpath("resourcepacker").."/commands.lua")
+
 function file_exists(name)
    local f=io.open(name,"r")
    if f~=nil then io.close(f) return true else return false end
 end
-function mod_path() 
+function mod_path()
 	local dir = minetest.get_modpath(minetest.get_current_modname())
 	return dir
-end 
+end
 
 function map_resource(node, file)
 	if file_exists(mod_path().."\\textures\\"..file) then
@@ -50,4 +52,3 @@ map_resource("flowers:tulip","flower_tulip_orange.png")
 map_resource("default:stone","stone.png")
 map_resource("stairs:stair_stone","stone.png")
 map_resource("stairs:slab_stone","stone.png")
-
